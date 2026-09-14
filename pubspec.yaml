@@ -49,6 +49,7 @@ dependencies:
   http: ^1.6.0
   video_player: ^2.14.0
   shared_preferences: ^2.5.5
+  equatable: ^2.1.0
 
 dev_dependencies:
   flutter_test:
