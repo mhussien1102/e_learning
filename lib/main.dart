@@ -2,13 +2,18 @@ import 'package:e_learning/bloc/font/font_bloc.dart';
 import 'package:e_learning/bloc/font/font_state.dart';
 import 'package:e_learning/core/routes/appRoutes.dart';
 import 'package:e_learning/core/routes/routes_pages.dart';
+import 'package:e_learning/core/services/storge_services.dart';
 import 'package:e_learning/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+import 'bloc/auth/auth_bloc.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await StorgeServices.init();
   runApp(const MyApp());
 }
 
@@ -19,7 +24,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider<FontBloc>(create: (context) => FontBloc())],
+      providers: [
+        BlocProvider<FontBloc>(create: (context) => FontBloc()),
+        BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
+      ],
       child: BlocBuilder<FontBloc, FontState>(
         builder: (context, fontState) {
           return GetMaterialApp(
