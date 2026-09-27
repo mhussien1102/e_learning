@@ -14,6 +14,7 @@ import 'bloc/auth/auth_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await StorgeServices.init();
+  await GetStorage().erase(); // احذف السطر ده أو علّق عليه
   runApp(const MyApp());
 }
 
