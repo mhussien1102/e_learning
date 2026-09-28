@@ -3,6 +3,8 @@ import 'package:e_learning/views/home/homeScreen.dart';
 import 'package:e_learning/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../views/auth/forget_password.dart';
+import '../../views/auth/register_screen.dart';
 import '../../views/onboarding/onBoardingScreen.dart';
 
 class AppRoutes {
@@ -11,6 +13,8 @@ class AppRoutes {
   static const String onBoarding = '/onboarding';
   static const String login = '/login';
   static const String home = '/home';
+  static const String register = '/register';
+  static const String forgetPassword = '/forgetPassword';
 
   static Route<dynamic> onGenrateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -20,6 +24,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => OnBoardingScreen());
       case login:
         return MaterialPageRoute(builder: (_) => Loginscreen());
+      case register:
+        return MaterialPageRoute(builder: (_) => RegisterScreen());
+      case forgetPassword:
+        return MaterialPageRoute(builder: (_) => ForgetPassword());
       case home:
         return MaterialPageRoute(builder: (_) => Homescreen());
 
