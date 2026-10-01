@@ -49,11 +49,11 @@ class _SplashScreenState extends State<SplashScreen>
 
     final authState = context.read<AuthBloc>().state;
     if (StorgeServices.isFirstTime()) {
-      StorgeServices.setFirstTime(false);
+      // StorgeServices.setFirstTime(false);
       Get.offNamed(AppRoutes.onBoarding);
     } else if (authState.userModel != null) {
       //navigte to home screen
-      Get.offNamed(AppRoutes.home);
+      Get.offNamed(AppRoutes.main);
     } else {
       //navigte to Login screen
       Get.offNamed(AppRoutes.login);

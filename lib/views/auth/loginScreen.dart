@@ -33,7 +33,7 @@ class _LoginscreenState extends State<Loginscreen> {
 
   void _handleLogin() {
     if (_formKey.currentState!.validate()) {
-      Get.offAllNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.main);
     }
   }
 
