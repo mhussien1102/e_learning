@@ -1,4 +1,5 @@
 import 'package:e_learning/core/routes/appRoutes.dart';
+import 'package:e_learning/core/services/storge_services.dart';
 import 'package:e_learning/core/theme/app_colors.dart';
 import 'package:e_learning/views/onboarding/widgets/onBoardingPageWidget.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     ),
   ];
 
+  void _completeOnboarding() async {
+    await StorgeServices.setFirstTime(false);
+    Get.offAllNamed(AppRoutes.login);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,9 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             top: 50,
             right: 20,
             child: TextButton(
-              onPressed: () {
-                Get.offNamed(AppRoutes.login);
-              },
+              onPressed: _completeOnboarding,
               child: Text(
                 'Skip',
                 style: TextStyle(
@@ -96,7 +100,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_currentPage == _pages.length - 1) {
-                      Get.offNamed(AppRoutes.login);
+                      _completeOnboarding();
                     } else {
                       _pageController.nextPage(
                         duration: Duration(milliseconds: 300),
