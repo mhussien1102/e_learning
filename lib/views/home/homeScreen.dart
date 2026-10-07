@@ -3,6 +3,7 @@ import 'package:e_learning/models/category.dart';
 import 'package:e_learning/views/home/widget/category_section.dart';
 import 'package:e_learning/views/home/widget/home_appbar.dart';
 import 'package:e_learning/views/home/widget/in_progress_section.dart';
+import 'package:e_learning/views/home/widget/recommended_section.dart';
 import 'package:e_learning/views/home/widget/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -82,6 +83,7 @@ class Homescreen extends StatelessWidget {
               CategorySection(categories: categories),
               SizedBox(height: 32),
               InProgressSection(),
+              RecommendedSection(),
             ]),
           ),
         ),
