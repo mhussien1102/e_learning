@@ -30,7 +30,13 @@ class AppPages {
             : null,
       ),
     ),
-    GetPage(name: AppRoutes.courseList, page: () => CourseListScreen()),
+    GetPage(
+      name: AppRoutes.courseList,
+      page: () => CourseListScreen(
+        categoryId: Get.arguments?['category'] as String?,
+        categoryName: Get.arguments?['categoryName'] as String?,
+      ),
+    ),
 
     GetPage(name: AppRoutes.quiz, page: () => QuizListScreen()),
 

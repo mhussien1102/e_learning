@@ -50,7 +50,13 @@ class AppRoutes {
       case forgetPassword:
         return MaterialPageRoute(builder: (_) => ForgetPassword());
       case courseList:
-        return MaterialPageRoute(builder: (_) => CourseListScreen());
+        final args = settings.arguments as Map<String, dynamic>?;
+        return MaterialPageRoute(
+          builder: (_) => CourseListScreen(
+            categoryId: args?['category'] as String?,
+            categoryName: args?['categoryName'] as String?,
+          ),
+        );
       case quiz:
         return MaterialPageRoute(builder: (_) => QuizListScreen());
       case profile:
