@@ -1,3 +1,6 @@
+import 'package:e_learning/core/services/dummy_data_services.dart';
+import 'package:e_learning/core/theme/app_colors.dart';
+import 'package:e_learning/views/quiz/quiz_list/widgets/quiz_card.dart';
 import 'package:flutter/material.dart';
 
 class QuizListScreen extends StatelessWidget {
@@ -5,6 +8,53 @@ class QuizListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("Quiz List Screen")));
+    final theme = Theme.of(context);
+    return Scaffold(
+      backgroundColor: AppColors.lightBackground,
+      body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 200,
+            pinned: true,
+            backgroundColor: AppColors.primary,
+            flexibleSpace: FlexibleSpaceBar(
+              titlePadding: EdgeInsets.all(16),
+              title: Text(
+                'Quizzes',
+                style: theme.textTheme.headlineMedium?.copyWith(
+                  color: AppColors.accent,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              background: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [AppColors.primary, AppColors.primaryLight],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.all(20),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final quiz = DummyDataServices.quizzes[index];
+                return QuizCard(
+                  title: quiz.title,
+                  description: quiz.description,
+                  questionCount: quiz.questions.length,
+                  timeLimit: quiz.timeLimit,
+                  onTap: () {},
+                );
+              }, childCount: DummyDataServices.quizzes.length),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
