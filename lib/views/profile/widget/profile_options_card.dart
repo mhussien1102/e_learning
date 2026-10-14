@@ -1,0 +1,81 @@
+import 'package:e_learning/core/theme/app_colors.dart';
+import 'package:flutter/material.dart';
+
+class ProfileOptionsCard extends StatelessWidget {
+  final String title;
+  final String subTitle;
+  final IconData icon;
+  final VoidCallback onTap;
+  final bool isDestructive;
+
+  const ProfileOptionsCard({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.icon,
+    required this.onTap,
+    this.isDestructive = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      margin: EdgeInsets.only(bottom: 16),
+      decoration: BoxDecoration(
+        color: AppColors.accent,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.1),
+            blurRadius: 10,
+            offset: Offset(0, 4),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(
+              children: [
+                Icon(
+                  icon,
+                  color: isDestructive ? AppColors.error : AppColors.primary,
+                  size: 24,
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          color: isDestructive
+                              ? AppColors.error
+                              : AppColors.primary,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        subTitle,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: AppColors.secondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right, size: 24, color: AppColors.secondary),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
