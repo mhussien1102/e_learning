@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_learning/core/routes/appRoutes.dart';
 import 'package:e_learning/core/theme/app_colors.dart';
 import 'package:e_learning/views/home/widget/text_in_card.dart';
 import 'package:e_learning/views/home/widget/time_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'is_premium_widget.dart';
@@ -45,7 +48,10 @@ class RecommendedCourseCard extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
-          onTap: () {},
+          onTap: () => Get.toNamed(
+            AppRoutes.courseDetails.replaceAll(':id', courseId),
+            arguments: courseId,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

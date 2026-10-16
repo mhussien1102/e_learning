@@ -3,6 +3,7 @@ import 'package:e_learning/main_screen.dart';
 import 'package:e_learning/views/auth/forget_password_screen.dart';
 import 'package:e_learning/views/auth/loginScreen.dart';
 import 'package:e_learning/views/auth/register_screen.dart';
+import 'package:e_learning/views/courses/course_detail/course_detail_screen.dart';
 import 'package:e_learning/views/courses/course_list/course_list_screen.dart';
 import 'package:e_learning/views/home/homeScreen.dart';
 import 'package:e_learning/views/onboarding/onBoardingScreen.dart';
@@ -39,6 +40,10 @@ class AppPages {
     ),
 
     GetPage(name: AppRoutes.quiz, page: () => QuizListScreen()),
+    GetPage(
+      name: '/course/:id',
+      page: () => CourseDetailScreen(courseId: Get.parameters['id'] ?? ''),
+    ),
 
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
   ];
