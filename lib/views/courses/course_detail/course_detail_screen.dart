@@ -1,3 +1,4 @@
+import 'package:e_learning/core/routes/appRoutes.dart';
 import 'package:e_learning/core/services/dummy_data_services.dart';
 import 'package:e_learning/models/course.dart';
 import 'package:e_learning/views/courses/course_detail/widgets/action_buttons.dart';
@@ -89,7 +90,14 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  // code
+                  Get.toNamed(
+                    AppRoutes.payment,
+                    arguments: {
+                      'courseId': widget.courseId,
+                      'courseName': course.title,
+                      'price': course.price,
+                    },
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
