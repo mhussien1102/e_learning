@@ -282,7 +282,7 @@ class DummyDataServices {
         id: '1',
         title: 'introducation to flutter',
         description: 'this deatiled of the flutter',
-        videoUrl: 'https://drive.google.com/file/d/1VLqmXem7_Zex-NMjR6fBarTXl3_6CwEI/view?usp=sharing',
+        videoUrl: 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
         duration: 30,
         resources: _createDummyResources(),
         isPreview: true,
@@ -376,7 +376,8 @@ class DummyDataServices {
       id: 'lesson_$id',
       title: title,
       description: 'this is deatiled of the $title',
-      videoUrl: 'https://drive.google.com/file/d/1VLqmXem7_Zex-NMjR6fBarTXl3_6CwEI/view?usp=sharing',
+      videoUrl:
+          'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
       duration: 30,
       resources: _createDummyResources(),
       isPreview: isPreview,

@@ -1,3 +1,4 @@
+import 'package:e_learning/core/routes/appRoutes.dart';
 import 'package:e_learning/core/services/dummy_data_services.dart';
 import 'package:e_learning/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -62,6 +63,13 @@ class LessonList extends StatelessWidget {
               );
             } else {
               // code
+              final result = await Get.toNamed(
+                AppRoutes.lesson.replaceAll(":id", lesson.id),
+                parameters: {'courseId': courseId},
+              );
+              if (result == true) {
+                onLessonComplete?.call();
+              }
             }
           },
         );
