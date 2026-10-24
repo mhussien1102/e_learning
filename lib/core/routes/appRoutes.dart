@@ -6,6 +6,7 @@ import 'package:e_learning/views/courses/lesson_screen/lesson_screen.dart';
 import 'package:e_learning/views/courses/payment/payment_screen.dart';
 import 'package:e_learning/views/home/homeScreen.dart';
 import 'package:e_learning/views/profile/profile_screen.dart';
+import 'package:e_learning/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning/views/quiz/quiz_list/quiz_list_screen.dart';
 import 'package:e_learning/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,8 @@ class AppRoutes {
   static const String payment = '/payment';
   static const String lesson = '/lesson/:id';
 
-  static const String quiz = '/quizzes';
+  static const String quizList = '/quizzes';
+  static const String quizAttempt = '/quiz/:id';
   static const String profile = '/profile';
 
   static Route<dynamic> onGenrateRoute(RouteSettings settings) {
@@ -75,8 +77,13 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => CourseDetailScreen(courseId: courseId),
         );
-      case quiz:
+      case quizList:
         return MaterialPageRoute(builder: (_) => QuizListScreen());
+      case quizAttempt:
+        final quizId = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => QuizAttemptScreen(quizId: quizId ?? ""),
+        );
 
       case lesson:
         final lessonId = settings.arguments as String?;
