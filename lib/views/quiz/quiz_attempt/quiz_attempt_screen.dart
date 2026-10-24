@@ -7,7 +7,10 @@ import 'package:e_learning/views/quiz/quiz_attempt/widget/quiz_attempt_app_bar.d
 import 'package:e_learning/views/quiz/quiz_attempt/widget/quiz_navigation_bat.dart';
 import 'package:e_learning/views/quiz/quiz_attempt/widget/quiz_question_page.dart';
 import 'package:e_learning/views/quiz/quiz_attempt/widget/quiz_submit_dialog.dart';
+import 'package:e_learning/views/quiz/quiz_result/quiz_result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../models/quiz.dart';
 
@@ -43,7 +46,6 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     _timer?.cancel();
     _pageController.removeListener(_onPageChanged);
     _pageController.dispose();
@@ -86,8 +88,7 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
       timeSpent: quiz.timeLimit * 60 - remainingSeconds,
     );
     DummyDataServices.saveQuizAttempt(currentAttempt!);
-
-    //code
+    Get.off(QuizResultScreen(attempt: currentAttempt!, quiz: quiz));
   }
 
   void _navigateToPage(int page) {

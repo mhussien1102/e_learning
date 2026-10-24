@@ -1,5 +1,6 @@
 import 'package:e_learning/core/routes/appRoutes.dart';
 import 'package:e_learning/main_screen.dart';
+import 'package:e_learning/models/quiz_attemps.dart';
 import 'package:e_learning/views/auth/forget_password_screen.dart';
 import 'package:e_learning/views/auth/loginScreen.dart';
 import 'package:e_learning/views/auth/register_screen.dart';
@@ -12,9 +13,11 @@ import 'package:e_learning/views/onboarding/onBoardingScreen.dart';
 import 'package:e_learning/views/profile/profile_screen.dart';
 import 'package:e_learning/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning/views/quiz/quiz_list/quiz_list_screen.dart';
+import 'package:e_learning/views/quiz/quiz_result/quiz_result_screen.dart';
 import 'package:e_learning/views/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
+import '../../models/quiz.dart';
 import '../../views/teacher/teacher_home_screen.dart';
 
 class AppPages {
@@ -46,6 +49,13 @@ class AppPages {
     GetPage(
       name: '/quiz/:id',
       page: () => QuizAttemptScreen(quizId: Get.parameters['id'] ?? ''),
+    ),
+    GetPage(
+      name: '/quiz/:id',
+      page: () => QuizResultScreen(
+        attempt: Get.arguments['attemp'] as QuizAttempt,
+        quiz: Get.arguments['quiz'] as Quiz,
+      ),
     ),
     GetPage(
       name: AppRoutes.lesson,

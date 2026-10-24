@@ -1,6 +1,8 @@
 import 'package:e_learning/models/quiz.dart';
 import 'package:e_learning/models/quiz_attemps.dart';
+import 'package:e_learning/views/quiz/quiz_result/quiz_result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class QuizSubmitDialog extends StatelessWidget {
   final QuizAttempt attempt;
@@ -14,6 +16,22 @@ class QuizSubmitDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AlertDialog(
+      title: Text("Submit Quiz"),
+      content: Text("Are You want to submit your answer ? "),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text("Cancel"),
+        ),
+        FilledButton(
+          onPressed: () {
+            Navigator.pop(context);
+            Get.off(() => QuizResultScreen(attempt: attempt, quiz: quiz));
+          },
+          child: Text("Submit"),
+        ),
+      ],
+    );
   }
 }
