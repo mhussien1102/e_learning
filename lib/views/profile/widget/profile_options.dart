@@ -23,7 +23,7 @@ class ProfileOptions extends StatelessWidget {
           title: 'Notifications',
           subTitle: 'Manage Your Notifications',
           icon: Icons.notifications_outlined,
-          onTap: () {},
+          onTap: () => Get.toNamed(AppRoutes.notifications),
         ),
         ProfileOptionsCard(
           title: 'Setting',
