@@ -54,7 +54,7 @@ class TeacherHomeScreen extends StatelessWidget {
                 DashboardCard(
                   title: 'My Courses',
                   icons: Icons.book,
-                  onTap: () {},
+                  onTap: () => Get.toNamed(AppRoutes.myCourses),
                 ),
                 DashboardCard(
                   title: 'Create Course',
@@ -69,6 +69,11 @@ class TeacherHomeScreen extends StatelessWidget {
                 DashboardCard(
                   title: 'Student Progress',
                   icons: Icons.people,
+                  onTap: () {},
+                ),
+                DashboardCard(
+                  title: 'Message',
+                  icons: Icons.chat,
                   onTap: () {},
                 ),
               ]),

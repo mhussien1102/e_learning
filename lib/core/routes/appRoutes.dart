@@ -10,6 +10,7 @@ import 'package:e_learning/views/profile/profile_screen.dart';
 import 'package:e_learning/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning/views/quiz/quiz_list/quiz_list_screen.dart';
 import 'package:e_learning/views/splash/splash_screen.dart';
+import 'package:e_learning/views/teacher/my_course/my_courses_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../views/auth/forget_password_screen.dart';
@@ -28,6 +29,7 @@ class AppRoutes {
   static const String register = '/register';
   static const String forgetPassword = '/forgetPassword';
   static const String teacherHome = '/teacherHome';
+  static const String myCourses = '/teacherHome/courses';
 
   static const String courseList = '/courses';
   static const String courseDetails = '/course/:id';
@@ -101,6 +103,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => NotificationsScreen());
       case teacherHome:
         return MaterialPageRoute(builder: (_) => TeacherHomeScreen());
+      case myCourses:
+        return MaterialPageRoute(builder: (_) => MyCoursesScreen());
       case home:
         return MaterialPageRoute(builder: (_) => Homescreen());
       case payment:
