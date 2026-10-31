@@ -4,6 +4,7 @@ import 'package:e_learning/models/quiz_attemps.dart';
 import 'package:e_learning/views/auth/forget_password_screen.dart';
 import 'package:e_learning/views/auth/loginScreen.dart';
 import 'package:e_learning/views/auth/register_screen.dart';
+import 'package:e_learning/views/chat/chat_list_screen.dart';
 import 'package:e_learning/views/courses/course_detail/course_detail_screen.dart';
 import 'package:e_learning/views/courses/course_list/course_list_screen.dart';
 import 'package:e_learning/views/courses/lesson_screen/lesson_screen.dart';
@@ -79,5 +80,6 @@ class AppPages {
     ),
 
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
+    GetPage(name: AppRoutes.teacherChats, page: () => ChatListScreen()),
   ];
 }

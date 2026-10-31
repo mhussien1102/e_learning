@@ -74,7 +74,7 @@ class TeacherHomeScreen extends StatelessWidget {
                 DashboardCard(
                   title: 'Message',
                   icons: Icons.chat,
-                  onTap: () {},
+                  onTap: () => Get.toNamed(AppRoutes.teacherChats),
                 ),
               ]),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -1,5 +1,6 @@
 import 'package:e_learning/main_screen.dart';
 import 'package:e_learning/views/auth/loginScreen.dart';
+import 'package:e_learning/views/chat/chat_list_screen.dart';
 import 'package:e_learning/views/courses/course_detail/course_detail_screen.dart';
 import 'package:e_learning/views/courses/course_list/course_list_screen.dart';
 import 'package:e_learning/views/courses/lesson_screen/lesson_screen.dart';
@@ -29,6 +30,7 @@ class AppRoutes {
   static const String register = '/register';
   static const String forgetPassword = '/forgetPassword';
   static const String teacherHome = '/teacherHome';
+  static const String teacherChats = '/teacher/chat';
   static const String myCourses = '/teacherHome/courses';
 
   static const String courseList = '/courses';
@@ -107,6 +109,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => MyCoursesScreen());
       case home:
         return MaterialPageRoute(builder: (_) => Homescreen());
+
+      case teacherChats:
+        return MaterialPageRoute(builder: (_) => ChatListScreen());
+
       case payment:
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
