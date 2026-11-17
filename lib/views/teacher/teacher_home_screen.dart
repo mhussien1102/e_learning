@@ -64,7 +64,7 @@ class TeacherHomeScreen extends StatelessWidget {
                 DashboardCard(
                   title: 'Analytics',
                   icons: Icons.analytics,
-                  onTap: () {},
+                  onTap: () => Get.toNamed(AppRoutes.teacherAnalytics),
                 ),
                 DashboardCard(
                   title: 'Student Progress',
